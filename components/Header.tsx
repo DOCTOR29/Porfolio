@@ -11,11 +11,6 @@ type Props = {
   socials: Social[]
 }
 
-
-
-
-
-
 const Header = ({socials}: Props) => {
   
   //  console.log(socials)
@@ -64,7 +59,7 @@ const Header = ({socials}: Props) => {
         
         {/* {/* <SocialIcon url="https://instagram.com/the.doctor.29" fgColor='gray' bgColor='transparent' /> */}
         
-        <SocialIcon url="https://instagram.com/the.doctor.29" fgColor='gray' bgColor='transparent' /> 
+        {/* <SocialIcon url="https://instagram.com/the.doctor.29" fgColor='gray' bgColor='transparent' />  */}
         
       </motion.div>
       

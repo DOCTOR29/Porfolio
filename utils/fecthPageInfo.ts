@@ -18,6 +18,9 @@ export const fetchPageInfo = async () => {
   
     
     const data = await client.fetch(query,
+        {
+            caches: 'no-store',
+        }
         
         );
     const pageInfo: PageInfo = data[0]
