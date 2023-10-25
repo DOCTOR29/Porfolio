@@ -10,7 +10,7 @@ type Props = {
 
 
 function Projects({ projects }: Props) {
-    console.log(projects)
+    // console.log(projects)
 
   return (
     //   <div className='h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0'>
