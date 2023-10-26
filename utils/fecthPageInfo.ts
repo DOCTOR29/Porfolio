@@ -2,6 +2,7 @@
 import { PageInfo } from "@/typings";
 import { groq } from "next-sanity";
 import { client } from "../sanity/lib/client"
+import { InferGetStaticPropsType } from "next";
 
 const query = groq`*[_type == "pageInfo"] {
     ...,
@@ -13,7 +14,9 @@ type Data = {
     pageInfo: PageInfo,
 }
 
-export const fetchPageInfo = async () => { 
+
+
+export const fetchPageInfo = async (  ) => { 
     
   
     

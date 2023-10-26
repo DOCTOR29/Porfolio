@@ -8,13 +8,15 @@ import Skills from "@/components/Skills";
 import WorkExperience from "@/components/WorkExperience";
 import Link from "next/link";
 import Image from "next/image";
-import { GetStaticProps } from "next";
+
 import { Experience, PageInfo, Project, Skill, Social } from "@/typings";
 import { fetchSkill } from "../utils/fetchSkills"
-import { fetchPageInfo } from "../utils/fecthPageInfo"
+import  {fetchPageInfo}  from "../utils/fecthPageInfo"
 import { fetchExperience } from "@/utils/fecthExperience";
 import { fetchSocials } from "@/utils/fetchSocials";
 import { fetchProject } from "@/utils/fetchProjects";
+
+
 
 type Props = {
   pageInfo: PageInfo;
@@ -25,11 +27,20 @@ type Props = {
 }
 
 
+// export async function getInitialProps() {
+  // const socials: Social[] = await fetchSocials();
+  // const pageInfo: PageInfo = await fetchPageInfo();
+  
+  // const experiences: Experience[] = await fetchExperience();
+  // const skills: Skill[] = await fetchSkill();
+  // const projects: Project[] = await fetchProject();
+  // return {pageInfo}
+// }
 
 export default async function Home() {
   
   const socials: Social[] = await fetchSocials();
-  const pageInfo: PageInfo = await fetchPageInfo();
+
   const experiences: Experience[] = await fetchExperience();
   const skills: Skill[] = await fetchSkill();
   const projects: Project[] = await fetchProject();
@@ -41,11 +52,11 @@ export default async function Home() {
      
       <Header socials = {socials}  />
       <section id="hero" className="snap-start">
-        <Hero pageInfo = { pageInfo }  />
+        <Hero   />
       </section>
 
       <section id="about" className="snap-center">
-        <About pageInfo = { pageInfo }  />
+        <About  />
       </section>
 
       <section id="experience" className="snap-center">
