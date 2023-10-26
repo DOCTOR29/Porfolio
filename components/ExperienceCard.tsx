@@ -12,9 +12,9 @@ type Props = {
 function ExperienceCard({ experience }: Props) {
     // console.log(experience.isCurrentlyWorkingHere);
   return (
-      <article className='flex flex-col  rounded-lg items-center space-y-7 flex-shrink-0 
-      h-[740px]
-      w-[320px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden'> 
+      <article className='flex flex-col  rounded-lg items-center space-y-7 flex-shrink-0
+      md:h-[740px] h-auto w-[22rem] 
+      md:w-[500px] xl:w-[900px] snap-center bg-[#292929] md:p-10 p-4 px-10 hover:opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 '> 
           <motion.div
               initial={{
                   y: -100,
@@ -26,9 +26,9 @@ function ExperienceCard({ experience }: Props) {
               viewport={{ once: true }}
           >
               <Image className='rounded-full w-20 h-20 object-cover object-top xl:h-[200px] xl:w-[200px] md:w-32 md:h-32' src={urlForImage(experience?.companyImage).url()} alt={experience?.company.toString()} width={320} height={320} ></Image>
-          </motion.div> 
+          </motion.div>
           <div className='px-0 md:px-10 '>
-              <h4 className='md:text-4xl text-xl font-light'>{experience.jobTitle}</h4>
+              <h4 className='md:text-4xl  text-xl font-light'>{experience.jobTitle}</h4>
               <p className='font-bold text-2xl mt-1'>{experience.company}</p>
               <div className='flex flex-row flex-wrap  items-center justify-center space-x-3 my-2   '>
               {/* <img src={ urlForImage(experience.technologies[0]?.image).url() } alt="" /> */}
@@ -41,7 +41,7 @@ function ExperienceCard({ experience }: Props) {
                   (<Image
                       className='
                       rounded-full object-contain
-                        my-2 md:h-10 md:w-10 h-4 w-4'
+                        md:my-2 my-1 md:h-10 md:w-10 h-4 w-4'
                           key={ technology?._id }
                           src={urlForImage(technology?.image).url()}
                       alt={technology?.titles} width={38} height={20}></Image>
@@ -59,7 +59,7 @@ function ExperienceCard({ experience }: Props) {
                   { new Date(experience.dateStarted).toDateString()} - { experience.isCurrentlyWorkingHere? "Present" : new Date(experience.dateEnded).toDateString()}
               </p>
               {/* make this scrollable */}
-              <ul className='list-disc space-y-4  ml-2 md:ml-5 text-lg h-120 md:h-96 
+              <ul className='list-disc space-y-4  ml-2 md:ml-5 md:text-lg text-xs h-120 md:h-96 
               overflow-y-scroll md:overflow-hidden
                 
                  scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]'>

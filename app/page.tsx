@@ -71,11 +71,13 @@ export default async function Home() {
       </section>
 
       <Link href="#hero">
-        <footer className="sticky bottom-5 w-full cursor-pointer ">
+        <footer className="sticky md:bottom-5 bottom-20 w-full cursor-pointer ">
           <div className="flex items-center justify-center">
             {" "}
             <Image
-              className="h-10 w-10 rounded-full grayscale hover:grayscale-0"
+              className="h-10 w-10 rounded-full grayscale
+              
+              hover:grayscale-0"
               src={"https://i.imgur.com/e2yvD6A.png"}
               alt="Mockup"
               width="600"

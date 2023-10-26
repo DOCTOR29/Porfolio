@@ -36,40 +36,40 @@ function ContactMe({ }: Props) {
 
   return (
     <div className="h-screen   relative flex-col flex text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center ">
-      <h3 className=" absolute top-[6rem] uppercase tracking-[20px] text-gray-500 text-xl">
+      <h3 className=" absolute top-[5rem] uppercase tracking-[20px] text-gray-500 text-xl">
         Contact
       </h3>
-      <div className="  mt-[10rem] w-4/5  flex flex-col space-y-10">
+      <div className="  md:mt-[10rem] mt-[4rem] w-4/5  flex flex-col space-y-0 md:space-y-10">
         <h4 className="text-2xl md:text-5xl font-semibold text-center">
           I have got just what you need.{" "}
           <span className="decoration-[#F7AB0A]/50 underline"> Lets Talk</span>
         </h4>
-        <div className="space-y-10">
+        <div className="md:space-y-10 space-y-3">
           <div className="flex items-center space-x-5 justify-center">
             <PhoneIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-xl md:text-2xl">{ pageInfo?.phoneNumber}</p>
+            <p className="text-sm md:text-2xl">{ pageInfo?.phoneNumber}</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
             <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-xl md:text-2xl"> { pageInfo?.email}</p>
+            <p className="text-sm md:text-2xl"> { pageInfo?.email}</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
             <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-xl md:text-2xl"> { pageInfo?.address}</p>
+            <p className="text-sm md:text-2xl"> { pageInfo?.address}</p>
           </div>
         </div>
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col space-y-2 w-fit mx-auto"
+          className="flex flex-col space-y-2 md:w-fit -mx-7   md:mx-auto"
         >
-          <div className="flex  space-x-2">
+          <div className="mt-5 flex md:flex-row flex-col md:space-y-0 space-y-2 md:space-x-2">
             <input
               {...register("name")}
               placeholder="Name"
-              className="contactInput"
+              className="contactInput  "
               type="text"
             />
             <input

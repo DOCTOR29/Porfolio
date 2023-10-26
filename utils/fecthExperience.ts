@@ -18,7 +18,7 @@ export const fetchExperience = async () => {
     
     const data = await client.fetch(query,
         {
-            caches: 'no-store',
+            
         });
     const experiences: Experience[] = data
     return experiences;

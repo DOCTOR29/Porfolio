@@ -13,7 +13,7 @@ export const fetchProject = async () => {
     
   const data = await client.fetch(query,
     {
-      caches: 'no-store',
+      
   });
     const projects: Project[] =  data
     return projects;

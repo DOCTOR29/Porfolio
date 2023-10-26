@@ -12,7 +12,7 @@ export const fetchSocials = async () => {
 
     const data = await client.fetch(query,
         {
-            cache: 'no-store'
+            
     });
     const socials: Social[] = data
     return socials;

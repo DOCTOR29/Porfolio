@@ -14,7 +14,7 @@ export const fetchSkill = async () => {
     
     const data = await client.fetch(query,
         {
-            caches: 'no-store',
+           
         });
     const skills: Skill[] = data
     return skills;
