@@ -1,4 +1,4 @@
-// "use client"
+"use client"
 import { PageInfo } from "@/typings";
 import { groq } from "next-sanity";
 import { client } from "../sanity/lib/client"
