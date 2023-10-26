@@ -1,16 +1,31 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {Project } from '@/typings'
 import { urlForImage } from '@/sanity/lib/image'
+import { fetchProject } from '@/utils/fetchProjects'
 type Props = {
     projects: Project[]
 }
 
 
-function Projects({ projects }: Props) {
+function Projects() {
     // console.log(projects)
+    const [projects, setProjects] = useState<Project[] | null>(null);
+  
+    useEffect(() => {
+       
+        async function fetchAPI() {
+            
+            const data = await fetchProject()
+            
+            setProjects(data)
+        }
+      fetchAPI()
+        
+        
+        },[])
 
   return (
     //   <div className='h-screen relative flex overflow-hidden flex-col text-left md:flex-row max-w-full justify-evenly mx-auto items-center z-0'>
@@ -18,9 +33,10 @@ function Projects({ projects }: Props) {
           <h3 className='absolute  uppercase top-24 tracking-[20px] text-gray-500 text-2xl'>Projects</h3>
 
           <div className=' mt-[8rem] md:mt-[0rem] md:mb-[1rem] relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory  z-20 scrollbar items-center  scrollbar-track-gray-400/20 scrollbar-thump-[#F7AB0A]/80'>
-              {projects.map((project, i) => (
+              {projects?.map((project, i) => (
                   <div className=' flex w-screen flex-shrink-0 snap-center flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen text-center'>
                       <motion.div
+                          id={i.toString()}
                           initial={{
                           y: -300,
                           opacity: 0,

@@ -1,14 +1,31 @@
 'use client'
 import { motion } from 'framer-motion'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Skill from './Skill'
 import { Skill as SkillType } from '@/typings'
+import { fetchSkill } from '@/utils/fetchSkills'
 
 type Props = {
     skills: SkillType[],
 }
 
-function Skills({skills}: Props) {
+function Skills() {
+
+    const [skills, setSkills] = useState<SkillType[] | null>(null);
+  
+    useEffect(() => {
+       
+        async function fetchAPI() {
+            
+            const data = await fetchSkill()
+            // console.log(data);
+             setSkills(data)
+        }
+      fetchAPI()
+        
+        
+        },[])
+
     return (
         <motion.div
             initial={{ opacity: 0 }}

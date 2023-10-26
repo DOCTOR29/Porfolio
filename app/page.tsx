@@ -39,36 +39,31 @@ type Props = {
 
 export default async function Home() {
   
-  const socials: Social[] = await fetchSocials();
-
-  const experiences: Experience[] = await fetchExperience();
-  const skills: Skill[] = await fetchSkill();
-  const projects: Project[] = await fetchProject();
 
 
   //  console.log(experiences)
   return (
     <div className="bg-[hsl(0,0%,14%)]  text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
      
-      <Header socials = {socials}  />
+      <Header   />
       <section id="hero" className="snap-start">
         <Hero   />
       </section>
 
       <section id="about" className="snap-center">
-        <About  />
+        <About />
       </section>
 
       <section id="experience" className="snap-center">
-        <WorkExperience experiences = { experiences } />
+        <WorkExperience  />
       </section>
 
       <section id="skills" className="snap-start">
-        <Skills skills  = {skills} />
+        <Skills  />
       </section>
 
       <section id="projects" className="snap-start">
-        <Projects projects = {projects} />
+        <Projects  />
       </section>
 
       <section id="contact" className="snap-start">

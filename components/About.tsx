@@ -15,16 +15,16 @@ type Props = {
 
 function About() {
     const [pageInfo, setPageInfo] = useState<PageInfo | null>(null);
-    const [ count, setCount] = useState(0)
+  
     useEffect(() => {
        
         async function fetchAPI() {
-            setCount(count + 10)
+            
             const data = await fetchPageInfo()
-            console.log(data);
+            // console.log(data);
              setPageInfo(data)
         }
-        fetchAPI()
+      fetchAPI()
         
         
         },[])
@@ -51,7 +51,7 @@ function About() {
           
           className='flex relative flex-col h-screen text-center md:text-left md:flex-row mx-w-7 px-10 justify-evenly mx-auto items-center'>
           
-          <h3 className='absolute top-24 uppercase tracking-[24px] text-gray-500 text-2xl '> { count}About</h3>  
+          <h3 className='absolute top-24 uppercase tracking-[24px] text-gray-500 text-2xl '> About</h3>  
           { pageInfo?.profilePic? 
           (<motion.img
               initial={{
@@ -62,7 +62,8 @@ function About() {
               transition={{duration: 1.2}}
               src={ (urlForImage(pageInfo?.profilePic).url()) || 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png' }
               className='-mb-20 md:mb-0 flex-shrink-0 w-40 mt-9 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 h-40 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[500px] xl:h-[600px]'
-          />): (<p className='text-base'>Profile Image</p>)}
+          />): (<p className='text-base'>Profile Image</p>)
+          }
           <div className='space-y-10 px-0 md:px-10 overflow-y-scroll md:overflow-hidden 
           h-[20rem]
           md:h-[29rem]'>

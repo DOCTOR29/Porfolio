@@ -15,16 +15,21 @@ type Props = {
 }
 
 function Hero() {
-  const [pageInfo, setPageInfo] = useState<PageInfo>();
-   
+  const [pageInfo, setPageInfo] = useState<PageInfo | null>(null);
+    const [ count1, setCount1] = useState(0)
     useEffect(() => {
-        setTimeout(async() => {
-            const data = 
-                await fetchPageInfo()
-            setPageInfo(data)
-            
-        },0)
-      });
+       
+        async function fetchAPI() {
+            setCount1(count1 + 10)
+            const data = await fetchPageInfo()
+            // console.log(data);
+             setPageInfo(data)
+        }
+      fetchAPI()
+        
+        
+        },[])
+        
   // console.log(pageInfo.name )
   var cdata = pageInfo?(pageInfo?.name.split(" ")):['naveed', 'islam']
   const [text, count] = useTypewriter({
@@ -37,6 +42,7 @@ function Hero() {
   return (
     <div className='h-screen flex flex-col items-center justify-center text-center overflow-hidden'>
       <BackgroundCircle />
+      {/* <h1 className='text-3xl'>{pageInfo?.name} </h1> */}
       { pageInfo?
      ( <Image src={urlForImage(pageInfo?.heroImage).url()} width='150' height='150' alt={'profile pic'} className='rounded-full  object-cover mt-7'>
         

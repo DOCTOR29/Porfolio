@@ -4,14 +4,28 @@ import { fetchSocials } from '@/utils/fetchSocials'
 import { motion } from 'framer-motion'
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { SocialIcon } from "react-social-icons"
 
 type Props = {
   socials: Social[]
 }
 
-const Header = ({socials}: Props) => {
+const Header = () => {
+  const [socials, setSocials] = useState<Social[] | null>(null);
+  
+    useEffect(() => {
+       socials
+        async function fetchAPI() {
+            
+            const data = await fetchSocials()
+            
+            setSocials(data)
+        }
+      fetchAPI()
+        
+        
+        },[])
   
   //  console.log(socials)
   return (
@@ -41,7 +55,7 @@ const Header = ({socials}: Props) => {
           return <h1>hehje</h1>
         })
         } */}
-        {socials.map((social) => (<SocialIcon
+        {socials?.map((social) => (<SocialIcon
           key={social._id}
           url={social.url} fgColor='gray' bgColor='transparent' /> )
         )}
