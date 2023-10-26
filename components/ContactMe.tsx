@@ -1,7 +1,9 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { fetchPageInfo } from "@/utils/fecthPageInfo";
+import { PageInfo } from "@/typings";
 
 type Props = {};
 
@@ -12,7 +14,22 @@ type Inputs = {
   message: string;
 };
 
-function ContactMe({}: Props) {
+function ContactMe({ }: Props) {
+  const [pageInfo, setPageInfo] = useState<PageInfo | null>(null);
+    const [ count1, setCount1] = useState(0)
+    useEffect(() => {
+       
+        async function fetchAPI() {
+            setCount1(count1 + 10)
+            const data = await fetchPageInfo()
+            // console.log(data);
+             setPageInfo(data)
+        }
+      fetchAPI()
+        
+        
+        },[])
+        
   const { register, handleSubmit } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (formData) => {window.location.href = `mailto:naveedislam545@gmail.com?subject=${formData.subject}&body=Hi my name is ${formData.email}.${formData.message}`;}
@@ -30,17 +47,17 @@ function ContactMe({}: Props) {
         <div className="space-y-10">
           <div className="flex items-center space-x-5 justify-center">
             <PhoneIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-xl md:text-2xl">+ 123 456 5789</p>
+            <p className="text-xl md:text-2xl">{ pageInfo?.phoneNumber}</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
             <EnvelopeIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-xl md:text-2xl">naveedislam545@gmail.com</p>
+            <p className="text-xl md:text-2xl"> { pageInfo?.email}</p>
           </div>
 
           <div className="flex items-center space-x-5 justify-center">
             <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-xl md:text-2xl"> 123 Developer Lane</p>
+            <p className="text-xl md:text-2xl"> { pageInfo?.address}</p>
           </div>
         </div>
 

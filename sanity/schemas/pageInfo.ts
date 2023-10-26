@@ -18,8 +18,13 @@ export default defineType({
     {
       name: 'heroImage',
       title: 'Image',
-      type:'image',
-    },
+      type: 'image',
+        
+      options: {
+        hotspot: true,
+      }
+      },
+    
     {
       name: 'backgroundInformation',
       title: 'BackgroundInformation',

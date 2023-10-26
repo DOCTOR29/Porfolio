@@ -44,7 +44,7 @@ function ExperienceCard({ experience }: Props) {
                         my-2 md:h-10 md:w-10 h-4 w-4'
                           key={ technology?._id }
                           src={urlForImage(technology?.image).url()}
-                      alt='js logo' width={38} height={20}></Image>
+                      alt={technology?.titles} width={38} height={20}></Image>
                   )
                   )
                   }
