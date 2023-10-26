@@ -15,15 +15,21 @@ type Props = {
 
 function About() {
     const [pageInfo, setPageInfo] = useState<PageInfo>();
-   
+    const [ count, setCount] = useState(0)
+    useEffect(() => {
+        setTimeout(() =>
+        setCount(count+1),700)
+    },)
     useEffect(() => {
         setTimeout(async() => {
             const data = 
                 await fetchPageInfo()
             setPageInfo(data)
             
-        },0)
-      },[]);
+           
+            
+        },1)
+      });
     // console.log(pageInfoData)
   return (
       <motion.div
@@ -32,7 +38,8 @@ function About() {
           transition={{duration: 1.5}}
           
           className='flex relative flex-col h-screen text-center md:text-left md:flex-row mx-w-7 px-10 justify-evenly mx-auto items-center'>
-          <h3 className='absolute top-24 uppercase tracking-[24px] text-gray-500 text-2xl '> About</h3>  
+          
+          <h3 className='absolute top-24 uppercase tracking-[24px] text-gray-500 text-2xl '> { count}About</h3>  
           { pageInfo?.profilePic? 
           (<motion.img
               initial={{
