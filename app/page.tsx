@@ -27,14 +27,14 @@ type Props = {
 }
 
 
-// export async function getInitialProps() {
-  // const socials: Social[] = await fetchSocials();
-  // const pageInfo: PageInfo = await fetchPageInfo();
+// export async function getServerSideProps() {
+//   const socials: Social[] = await fetchSocials();
+//   const pageInfo: PageInfo = await fetchPageInfo();
   
-  // const experiences: Experience[] = await fetchExperience();
-  // const skills: Skill[] = await fetchSkill();
-  // const projects: Project[] = await fetchProject();
-  // return {pageInfo}
+//   const experiences: Experience[] = await fetchExperience();
+//   const skills: Skill[] = await fetchSkill();
+//   const projects: Project[] = await fetchProject();
+//   return {pageInfo}
 // }
 
 export default async function Home() {
