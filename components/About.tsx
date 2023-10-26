@@ -1,6 +1,6 @@
 'use client'
 import  { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { delay, motion } from 'framer-motion'
 import Image from 'next/image'
 import { PageInfo } from '@/typings'
 import { urlForImage } from '@/sanity/lib/image'
@@ -14,22 +14,34 @@ type Props = {
 }
 
 function About() {
-    const [pageInfo, setPageInfo] = useState<PageInfo>();
+    const [pageInfo, setPageInfo] = useState<PageInfo | null>(null);
     const [ count, setCount] = useState(0)
     useEffect(() => {
-        setTimeout(() =>
-        setCount(count+1),700)
-    },)
-    useEffect(() => {
-        setTimeout(async() => {
-            const data = 
-                await fetchPageInfo()
-            setPageInfo(data)
+       
+        async function fetchAPI() {
+            setCount(count + 10)
+            const data = await fetchPageInfo()
+            console.log(data);
+             setPageInfo(data)
+        }
+        fetchAPI()
+        
+        
+        },[])
+        
+
+    // useEffect(() => {
+    //    async function fetchAPI () {
+            
+    //        let data = await fetchPageInfo()
+           
+    //          setPageInfo(data)
             
            
             
-        },1)
-      });
+    //    }
+    //    fetchAPI()
+    //   });
     // console.log(pageInfoData)
   return (
       <motion.div
