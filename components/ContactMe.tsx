@@ -57,7 +57,7 @@ function ContactMe({ }: Props) {
 
           <div className="flex items-center space-x-5 justify-center">
             <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-            <p className="text-sm md:text-2xl"> { pageInfo?.address}</p>
+            <p className="text-sm md:text-2xl"> Assam, India</p>
           </div>
         </div>
 
